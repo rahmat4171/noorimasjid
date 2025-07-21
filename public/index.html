@@ -982,7 +982,7 @@
                         <div class="prayer-time" id="ishaTime">8:30 PM</div>
                         <div class="iqamah-time">Iqamah: <span id="maghribIqamah">8:45 PM</span></div>
                     </div>
-                    <div class="prayer-next">Just before night</div>
+                    <div class="prayer-next">Just before midnight</div>
                 </div>
                 
                 <div class="prayer-card jumah-card">
@@ -993,6 +993,7 @@
                     </div>
                     <div class="prayer-next">Friday Congregational Prayer</div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1287,7 +1288,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025 Noori Jama-Masjid Islamic Community Center. All Rights Reserved.</p>
+                <p>&copy; 2025 Noori Jama-Masjid, Kharka. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1335,6 +1336,7 @@
         document.getElementById('dhuhrTime').textContent = prayerTimesData.dhuhr;
         document.getElementById('asrTime').textContent = prayerTimesData.asr;
         document.getElementById('maghribTime').textContent = prayerTimesData.maghrib;
+        document.getElementById('ishaTime').textContent = prayerTimesData.isha;
         
         // Helper function to convert time string to minutes from midnight
         function convertTimeToMinutes(timeStr) {
@@ -1375,6 +1377,8 @@
                 currentPrayerId = 'asrCard';
             } else if (currentTimeInMinutes >= prayerMinutes.maghrib && currentTimeInMinutes < prayerMinutes.isha) {
                 currentPrayerId = 'maghribCard';
+            }else if (currentTimeInMinutes >= prayerMinutes.isha && currentTimeInMinutes < prayerMinutes.isha) {
+                currentPrayerId = 'ishaCard';
             }
             // Note: The period for Isha (after Isha time until midnight) and the period from midnight to Fajr
             // do not have a corresponding card in the HTML, so nothing will be highlighted then.
@@ -1462,7 +1466,7 @@
         // Update copyright year
         const copyrightElement = document.querySelector('.copyright p');
         if (copyrightElement) {
-            copyrightElement.innerHTML = `&copy; ${new Date().getFullYear()} Noori Jama-Masjid Islamic Community Center. All Rights Reserved.`;
+            copyrightElement.innerHTML = `&copy; ${new Date().getFullYear()} Noori Jama-Masjid, Kharka. All Rights Reserved.`;
         }
 
     </script>
